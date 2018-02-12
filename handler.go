@@ -12,8 +12,8 @@ import (
 // If the path is not provided in the map, then the fallback
 // http.Handler will be called instead.
 func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.HandlerFunc {
+	fmt.Println("!!!!!!!!!!!!woof")
 	return func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("!!!!!!!!!!!!woof")
 		path := r.URL.Path
 		if dest, ok := pathsToUrls[path]; ok {
 			http.Redirect(w, r, dest, http.StatusFound)
